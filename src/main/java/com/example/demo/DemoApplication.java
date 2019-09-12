@@ -1,15 +1,18 @@
 package com.example.demo;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -99,4 +102,20 @@ class Student{
 	}
 
 }
+/*
+@Configuration
+@Slf4j
+class  LoadDatatabase{
 
+	@Bean
+	CommandLineRunner initDatabase(StudentRepository repository){
+
+		return  args -> {
+			log.info("Preloading " + repository.save(new Student("Bilbo Baggins", 6)));
+			log.info("Preloading " + repository.save(new Student("Frodo Baggins", 4)));
+
+		};
+	}
+
+}
+*/
